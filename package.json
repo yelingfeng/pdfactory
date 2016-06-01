@@ -1,0 +1,62 @@
+{
+  "name": "pdfactory",
+  "version": "0.0.1",
+  "description": "Mixing visual chart factory ",
+  "main": "index.js",
+  "scripts": {
+    "dev": "gulp serve",
+    "build": "gulp build",
+    "server": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yelingfeng/pdfactory.git"
+  },
+  "author": "yelingfeng",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yelingfeng/pdfactory/issues"
+  },
+  "homepage": "https://github.com/yelingfeng/pdfactory#readme",
+  "dependencies": {
+    "babel-runtime": "^6.0.0",
+    "vue": "^1.0.24",
+    "vuex": "^0.6.3"
+  },
+  "devDependencies": {
+    "babel-core": "^6.0.0",
+    "babel-loader": "^6.0.0",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-transform-runtime": "^6.0.0",
+    "babel-preset-es2015": "^6.0.0",
+    "babel-preset-stage-2": "^6.0.0",
+    "babel-register": "^6.7.2",
+    "bootstrap": "^3.3.6",
+    "cross-env": "^1.0.6",
+    "css-loader": "^0.23.0",
+    "del": "^2.2.0",
+    "express": "^4.13.4",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.8.4",
+    "gulp": "^3.9.1",
+    "gulp-env": "^0.4.0",
+    "gulp-nodemon": "^2.0.6",
+    "gulp-sequence": "^0.4.5",
+    "gulp-util": "^3.0.7",
+    "image-webpack-loader": "^1.6.3",
+    "jquery": "^2.2.2",
+    "json-loader": "^0.5.4",
+    "lodash": "^4.6.1",
+    "moment": "^2.13.0",
+    "open": "0.0.5",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "vue-hot-reload-api": "^1.2.0",
+    "vue-html-loader": "^1.0.0",
+    "vue-loader": "^8.2.1",
+    "vue-resource": "^0.7.0",
+    "vue-style-loader": "^1.0.0",
+    "webpack": "^1.12.2",
+    "webpack-dev-server": "^1.12.0"
+  }
+}
