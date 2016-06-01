@@ -1,8 +1,17 @@
 # pdfactory
  Mixing visual chart factory
 
-##  npm install
+## init 
+``
+    npm install
+`` 
 
-##  npm run dev 
+## dev
+``
+    npm run dev 
+``
 
-##  npm run build
+##  build
+``
+  npm run build
+``
