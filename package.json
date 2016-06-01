@@ -43,6 +43,7 @@
     "gulp-nodemon": "^2.0.6",
     "gulp-sequence": "^0.4.5",
     "gulp-util": "^3.0.7",
+    "html-webpack-plugin": "^2.19.0",
     "image-webpack-loader": "^1.6.3",
     "jquery": "^2.2.2",
     "json-loader": "^0.5.4",
