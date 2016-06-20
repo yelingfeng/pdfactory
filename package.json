@@ -57,6 +57,7 @@
     "vue-loader": "^8.2.1",
     "vue-resource": "^0.7.0",
     "vue-style-loader": "^1.0.0",
+    "vue-toastr": "^1.0.4",
     "webpack": "^1.12.2",
     "webpack-dev-server": "^1.12.0"
   }
