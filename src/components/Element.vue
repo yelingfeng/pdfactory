@@ -17,6 +17,9 @@
 
 </template>
 <script>
+
+
+
     import RC from "./../util/ResourcesConfig"
     import $ from "jquery"
 

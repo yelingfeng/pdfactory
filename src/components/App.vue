@@ -1,7 +1,8 @@
 <template>
     <div class="zlayoutCenterView" :style="styleObj">
 
-        <Element :eid="aaa" :max-num="1"></Element>
+        <Element :eid="aaa" :max-num="1" ></Element>
+        <Ele-cls :eid="222" :max-num="2" ></Ele-cls>
         <p>
             <button @click="showToaster('error')">error</button>
             <button @click="showToaster('warning')">waring</button>
@@ -14,10 +15,11 @@
 
 <script>
     import $ from "jquery"
-    import Element from "./Element"
+    import Element from "./Element.vue"
     import Toaster from "./Toaster"
     import {TestAction,loadModules} from "./../vuex/actions"
     import Utils  from "./../util/zUtil"
+    import EleCls from "./Element.js"
     export default {
          data(){
              return {
@@ -40,7 +42,7 @@
 
             init(){
 
-                this.loadModules();
+                //this.loadModules();
 
                 this.styleObj.width  = $(window).width() + "px";
                 this.styleObj.height = $(window).height() + "px";
@@ -60,7 +62,7 @@
             }
         },
         components : {
-            Element,
+            Element,EleCls,
             Toaster
         }
     }
