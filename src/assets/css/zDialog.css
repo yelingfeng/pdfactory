@@ -1,0 +1,121 @@
+/**
+ * windows.css
+ * @category   javascript
+ * @package    jquery
+ * @author     KalVen <63352413@gmail.com>  
+ */
+
+.zDialog_box {
+    position: absolute;
+    border: 1px solid #154b8a;
+    background: #155391 ;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .75);
+    z-index : 2046;
+}
+.zDialog_header {
+    color: #fff;
+    font-size: 14px;
+    padding: 10px;
+}
+.zDialog_mask {
+    width: 100%;
+    height: 100%;
+    background: #ccc;
+    opacity: .3;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index:2045;
+}
+.zDialog_footer input[type="button"]{
+  border: none;
+  background: none;
+  background: url(../image/commonPop/dialog_bg.png) no-repeat;
+  width: 70px;
+  height: 26px;
+  line-height:26px;
+  text-align:center;
+  background-position: 0px 0px;
+  font-size: 12px;
+  font-family: "ËÎÌו";
+  color: #fff;
+ 
+}
+.zDialog_footer input[type="button"]:hover{
+  background-position: -125px 0px;
+}
+.zDialog_alertBtn {
+    /*width: 100px;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    margin-left: -50px;*/
+}
+.zDialog_body {
+    padding: 5px;
+    background: #f2f2f2 none repeat scroll 0 0;
+    margin: 0 5px;
+	text-align:center;
+}
+.zDialog_closeBtn {
+    background: #155391 url(../image/commonPop/tip_icon.png) no-repeat 0px -128px;
+    border: medium none;
+    height: 15px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 15px;
+	cursor:pointer;
+}
+.move {
+    cursor: move;
+}
+.zDialog_footer {
+    padding: 10px 0;
+    text-align: center;
+	margin:0 5px;
+	background:#f2f2f2;
+}
+.zDialog_cancelBtn {
+    margin-left: 10px;
+}
+.zDialog_promptInputWrapper {
+    text-align: center;
+}
+
+
+/* skin for a */
+ .zDialog_skin_a.zDialog_box {
+    box-shadow: none;
+    border: 10px solid rgba(0, 0, 0, .3);
+    border-radius: 8px;
+}
+.zDialog_skin_a .zDialog_alertBtn {
+    width: 50px;
+    left: auto;
+    right: 20px;
+    margin-left: 0;
+    background: red;
+    border: none;
+    color: #fff;
+    padding: 10px;
+}
+.zDialog_skin_a .zDialog_header {
+    background: red;
+    text-align: left;
+    padding: 10px;
+    font-weight: bold;
+}
+.zDialog_skin_a .zDialog_closeBtn {
+    width: 45px;
+    height: 45px;
+    border-radius: 45px;
+    line-height: 45px;
+    padding: 0;
+    text-align: center;
+    background: blue;
+    font-size: 24px;
+    font-weight: bold;
+    right: -15px;
+    top: -15px;
+}

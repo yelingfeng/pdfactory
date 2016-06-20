@@ -1,0 +1,105 @@
+/*
+**reset
+**date on 06/16/2015
+*/
+body, div, dl, dt, dd, ul, ol, li,
+h1, h2, h3, h4, h5, h6, pre, code,
+form, fieldset, legend, input, button,
+textarea, p, blockquote, th, td {
+margin: 0;
+padding: 0;
+}
+fieldset, img {
+border: 0;
+}
+/* remember to define focus styles! */
+:focus {
+outline: 0;
+}
+address, caption, cite, code, dfn, em, strong, th, var, optgroup {
+font-style: normal;
+font-weight: normal;
+}
+
+h1, h2, h3, h4, h5, h6 {
+font-size: 100%;
+font-weight: normal;
+}
+abbr, acronym {
+border: 0;
+font-variant: normal;
+}
+
+input, button, textarea, select, optgroup, option {
+font-family: inherit;
+font-size: inherit;
+font-style: inherit;
+font-weight: inherit;
+}
+code, kbd, samp, tt {
+font-size: 100%;
+}
+/*@purpose To enable resizing for IE */
+/*@branch For IE6-Win, IE7-Win */
+input, button, textarea, select {
+*font-size: 100%;
+}
+body {
+line-height: 1.5;
+}
+body,html{height:100%;}
+ol, ul {
+list-style: none;
+}
+/* tables still need  */
+table {
+border-collapse: collapse;
+border-spacing: 0;
+font-size:12px;
+}
+caption, th {
+text-align: left;
+}
+sup, sub {
+font-size: 100%;
+vertical-align: baseline;
+}
+/* remember to highlight anchors and inserts somehow! */
+:link, :visited , ins {
+text-decoration: none;
+}
+blockquote, q {
+quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+content: '';
+content: none;
+}
+.clearfix:after {
+content: '';
+display: block;
+height: 0;
+clear: both;
+visibility: hidden;
+}
+.clearfix {display: inline-block;}
+
+/* Hides from IE-mac \*/
+* html .clearfix {height: 1%;}
+.clearfix {display: block;}
+/* End hide from IE-mac */
+
+.attack-info{
+    background-color: rgba(0,0,0,0.65);
+    border: 1px solid #fff;
+    border-radius : 4px;
+    color: #fff;
+    font-size: 12px;
+    padding: 4px 6px;
+    z-index:9999;
+}
+.attack-info p{
+    margin: 4px;
+}
+

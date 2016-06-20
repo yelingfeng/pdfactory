@@ -1,30 +1,26 @@
 import api from "./../api"
 import * as types from './mutation-types'
-
-// 设置查询分组
-export const setSearchGroup = ({ dispatch }, group,key) => {
-    // 设置searchGroup 值
-    dispatch(types.SET_SEARCH_GROUP_VAL, group)
-    // 查询结果
-    searchParamList({dispatch},group,key)
+export const showMsg = ({dispatch}, content,type='error') => {
+    dispatch(types.SHOW_MSG, {
+    	content:content,
+    	type:type
+    })
+}
+export const hideMsg = ({dispatch}) => {
+    dispatch(types.HIDE_MSG)
 }
 
-// clear 查询项
-export const clearSearchKey = ({dispatch} ) =>{
-    dispatch(types.CLEAR_SEARCH_VAL)
+
+export const TestAction = (store,message,type) =>{
+	showMsg(store,message,type);
 }
 
-// 更新查询项
-export const updateSearchKey = ({dispatch},key) =>{
-    dispatch(types.UPDATE_SEARCH_VAL,key);
-}
 
-// 查询结果集合
-export const searchParamList = ({dispatch},group,key) =>{
-    // 根据group和key 查询
-    api.getSearchParamList({type:group,key:key}).then(reply => {
-         if(reply.data.result){
-             dispatch(types.SET_SEARCH_LIST,reply.data.result);
-         }
-    });
+export const loadModules = ({dispatch}) => {
+
+	api.initSelectModules({
+		moduleId:'c4800b3a-f943-4bac-b2bc-fbef3ef52972'
+	}).then(rep => {
+		 dispatch(types.INIT_GLOBAL_DATA,rep.data.result)
+	});
 }
