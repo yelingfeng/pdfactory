@@ -1,8 +1,7 @@
 <template>
+    <h1 v-text="msg"></h1>
     <div class="zlayoutCenterView" :style="styleObj">
-
-        <Element :eid="aaa" :max-num="1" ></Element>
-        <Ele-cls :eid="222" :max-num="2" ></Ele-cls>
+        <Element id="abc" :max-num='1' :w='180' :h='180'  ></Element>
         <p>
             <button @click="showToaster('error')">error</button>
             <button @click="showToaster('warning')">waring</button>
@@ -15,13 +14,12 @@
 
 <script>
     import $ from "jquery"
-    import Element from "./Element.vue"
     import Toaster from "./Toaster"
     import {TestAction,loadModules} from "./../vuex/actions"
     import Utils  from "./../util/zUtil"
-    import EleCls from "./Element.js"
+    import Element from "./Element"
     export default {
-         data(){
+        data(){
              return {
                  msg : "产品工场",
                  styleObj : {
@@ -29,12 +27,12 @@
                      height : 0
                  }
              }
-         },
-         vuex : {
+        },
+        vuex : {
             actions : {
                 TestAction,loadModules
             }
-         },
+        },
         ready(){
             this.init();
         },
@@ -49,11 +47,12 @@
                 var isOpacity = Utils.getUrlString("isOpacity");
 
                 if(isOpacity && isOpacity == "1"){
-                    $("body").css({
-                        "background":"#072E67 url(image/zld-bg.jpg) no-repeat center 0",
-                        "background-size":"cover"
-                    })
+                   
                 }
+                $("body").css({
+                    "background":"#072E67 url(src/assets/image/zld-bg.jpg) no-repeat center 0",
+                    "background-size":"cover"
+                })
 
             },
 
@@ -62,7 +61,7 @@
             }
         },
         components : {
-            Element,EleCls,
+            Element,
             Toaster
         }
     }

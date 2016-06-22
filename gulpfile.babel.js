@@ -17,7 +17,8 @@ gulp.task('serve', cb =>{
   new WebpackDevServer(webpack(myConfig), {
       noInfo: false,
       hot: true,
-      historyApiFallback: true,
+      inline :true,
+      // historyApiFallback: true,
       publicPath: myConfig.output.publicPath,
       stats: {
         colors: true

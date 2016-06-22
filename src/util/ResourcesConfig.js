@@ -10,8 +10,8 @@ const config = {
     WAPPER : 'zlayoutWapper',
 
     // 最小尺寸
-    ZELEMENT_MINH : 30,
-    ZELEMENT_MINW : 50,
+    ZELEMENT_MINH : 150,
+    ZELEMENT_MINW : 100,
     // 元素控制拖拽span
     ZElEMENT_SPAN:"span[class^='z-radius']",
     // 元素 选中效果class

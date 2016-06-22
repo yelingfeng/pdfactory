@@ -5,7 +5,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    vendor: ['vue','vuex'],
+    vendor: ['vue','vuex','lodash','jquery'],
     bundle: './src/main'
   },
   output: {
@@ -30,7 +30,7 @@ module.exports = {
     }),
     new ExtractTextPlugin('[hash:8].style.css', { allChunks: true }),
     new HtmlWebpackPlugin({
-      title: "vuex-tutorial",
+      title: "",
       template: path.join(__dirname,'src/index.html'),  //模板文件
       inject:'body',
       hash:false,    //为静态资源生成hash值
