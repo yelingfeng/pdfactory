@@ -139,12 +139,8 @@ let removeEvent = (eventName,vm) =>{
 }
 
 
+const dragResize  =  {
 
-
-
-const Base  =  {
-
-  methods : {
 
     addEvent,
     removeEvent,
@@ -215,9 +211,7 @@ const Base  =  {
         this.h = int(this.lastH) + int(e.clientY) - int(this.resizeStartY)
       }
     }
-  }
-  
-  
+ 
 }
 
-export default Base
+export default dragResize

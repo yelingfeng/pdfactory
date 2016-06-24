@@ -21,6 +21,10 @@ const util  =  {
 			};
 			return (key + '-'+S4()+S4()+'-'+S4()+S4()+'-'+S4()+S4()); 
 		},
+
+		log : function(obj){
+			console.log(JSON.parse(JSON.stringify(obj)));
+		},
 		
 		
 		// 数组去重复

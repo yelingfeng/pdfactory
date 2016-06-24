@@ -2,32 +2,10 @@
  * Created by  on 2016/6/20.
  */
 
-<template>
-    <div class="zlayoutElement" :class="{'ele-focus':isEleFocus}"  id="{{id}}" maxNum={{maxNum}} 
-            @mousedown='handleDown' @mouseup='handleUp' :style='boxStyle'>
-        <div class="zlayout-eleContent">
-            <div class="zlayout-component">
-                 <slot></slot>
-            </div>
-        </div>
-        <div class="zlayout-rb">
-            <span class="z-radius north-west-resize"></span>
-            <span class="z-radius north-resize" ></span>
-            <span class="z-radius north-east-resize" ></span>
-            <span class="z-radius west-resize" ></span>
-            <span class="z-radius east-resize" ></span>
-            <span class="z-radius south-west-resize"></span>
-            <span class="z-radius south-resize" ></span>
-            <span class="z-radius south-east-resize" @mousedown.stop='resizeStart'></span>
-        </div>
-    </div>
-</template>
-
-<script>
-
-
-import Base from "./Base"
+import Component from "vue-class-component"
+import dragResize from "./dragResize"
 import RC from "./../util/ResourcesConfig"
+import {mixin} from "core-decorators"
 
 const  defaultOption = {
     minWidth : RC.ZELEMENT_MINW,        // 限制最小宽度
@@ -51,7 +29,22 @@ const  defaultOption = {
 }
 
 
-const attr = {
+
+const template =  `
+     <div class="zlayoutElement" :class="{'`+RC.ZElEMENT_ELE_FOCUS+`':isEleFocus}"  id="{{id}}" maxNum={{maxNum}} 
+            @mousedown='handleDown' @mouseup='handleUp' :style='boxStyle'>
+        <div class="zlayout-eleContent">
+           <div class="zlayout-component">
+              <slot ></slot> 
+           </div> 
+        </div>
+        <div class="zlayout-rb">
+            <span class="z-radius south-east-resize" @mousedown.stop='resizeStart'></span>
+        </div>
+    </div>  
+   `;
+
+const props = {
       w:{
           type:Number,
           default:RC.ZELEMENT_MINW
@@ -113,23 +106,10 @@ const attr = {
 
 
 
-
-export  default {
-    mixins:[Base],
-    props :attr,
-    data(){
-        return {
-          lastX: 0,
-          lastY: 0,
-          dragging:false,
-          resizeStartX:0,
-          resizeStartY:0,
-          resizing:false
-        }
-    },
-
-    computed:{
-
+@Component({
+   props :props,
+   template :template,
+   computed:{
         // 拖拽或者resize时候显示边框    
         isEleFocus(){
             return  this.dragging ||  this.resizing; 
@@ -142,18 +122,31 @@ export  default {
               transform:'translate('+this.x+'px,'+this.y+'px)'
             }
         }
-
-    },
+   }
+})
+@mixin(dragResize)
+export default class Element {
+    
+    data(){
+        return {
+          lastX: 0,
+          lastY: 0,
+          dragging:false,
+          resizeStartX:0,
+          resizeStartY:0,
+          resizing:false
+        }
+    }    
 
     ready(){
         this.addEvent('handleMove',this)
-    },
+    }
     beforeDestroy(){
         this.removeEvent('handleMove',this)
     }
- 
- 
+    
+
 }
 
 
-</script>
+

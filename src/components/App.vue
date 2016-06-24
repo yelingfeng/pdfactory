@@ -1,13 +1,9 @@
 <template>
     <h1 v-text="msg"></h1>
     <div class="zlayoutCenterView" :style="styleObj">
-        <Element id="abc" :max-num='1' :w='180' :h='180'  ></Element>
-        <p>
-            <button @click="showToaster('error')">error</button>
-            <button @click="showToaster('warning')">waring</button>
-            <button @click="showToaster('success')">success</button> 
-            <button @click="showToaster('info')">info</button> 
-        </p>
+        <element v-for="comp in gData.components" :options="comp" ></element>   
+
+          
     </div>
     <Toaster></Toaster>
 </template>
@@ -17,7 +13,7 @@
     import Toaster from "./Toaster"
     import {TestAction,loadModules} from "./../vuex/actions"
     import Utils  from "./../util/zUtil"
-    import Element from "./Element"
+    import element from "./BaseComponent"
     export default {
         data(){
              return {
@@ -29,18 +25,25 @@
              }
         },
         vuex : {
+
+            getters : {
+                gData : ({app}) => app.globalData
+            },
+
             actions : {
                 TestAction,loadModules
             }
         },
         ready(){
-            this.init();
+            this._init();
         },
         methods:{
 
-            init(){
+            _init(){
 
-                //this.loadModules();
+                this.loadModules();
+
+                
 
                 this.styleObj.width  = $(window).width() + "px";
                 this.styleObj.height = $(window).height() + "px";
@@ -49,10 +52,7 @@
                 if(isOpacity && isOpacity == "1"){
                    
                 }
-                $("body").css({
-                    "background":"#072E67 url(src/assets/image/zld-bg.jpg) no-repeat center 0",
-                    "background-size":"cover"
-                })
+                $("body").addClass("bg-body")
 
             },
 
@@ -61,7 +61,7 @@
             }
         },
         components : {
-            Element,
+            element,
             Toaster
         }
     }
