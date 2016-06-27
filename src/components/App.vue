@@ -2,8 +2,7 @@
     <h1 v-text="msg"></h1>
     <div class="zlayoutCenterView" :style="styleObj">
         <element v-for="comp in gData.components" :options="comp" ></element>   
-
-          
+         
     </div>
     <Toaster></Toaster>
 </template>

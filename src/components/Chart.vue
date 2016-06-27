@@ -8,11 +8,7 @@
 <script>
 	
 export default {
-	return {
-		a :{
-			
-		}
-	}
+
 }
 </script>
 

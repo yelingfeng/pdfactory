@@ -8,11 +8,6 @@ import 'vue-toastr/dist/vue-toastr.css'
 Vue.config.debug = true
 
 
-window.log = (op) =>{
-   return JSON.parse(JSON.stringify(op));
-}
-
-
 
 new Vue({
    el : "body",
