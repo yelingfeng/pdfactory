@@ -31,20 +31,13 @@ import Chart from "./Chart"
 	`		
 })
 export default class BaseComponent extends Element{
-
 	data(){
-
-
 		var compName = this.options.content.type
-
 		return {
 			compName:"Chart"
 		}
 	}
-
 	ready(){	
 		log(this.options);
 	}
-
-
 }
