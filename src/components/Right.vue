@@ -63,8 +63,10 @@
     						    	<li>
     							    	<dl>
     										<dt class="f12_2f5a93 m_t_3 t_align_l p_l_12">透明度：</dt>
-    										<dd class="control-look"  rel="border">
-        										<div id="slider"></div>
+    										<dd class="dd-range">
+        										<div class="z-range" style="width:170px;height:55px">
+        											<div id="range" ></div>
+        										</div>
     										</dd>
     									</dl>
     								</li>
@@ -92,6 +94,13 @@
     									    	<option chart-type="f_chart" value="6">右中</option>
     										</select>
         								</div>
+        								<div class="lineBox" >
+                                        	<span class="compLabelName">级联取值：</span>
+                                        	<select class="baseAttrSelect" id="cascadeValueSelect">
+                                        		<option selected="selected" value="1">首个</option>
+                                        		<option value="2">末尾</option>
+                                        	</select>
+                                        </div>
     							    	<div class="lineBox propDpyNone" prop-type="spcPropCheck">
     								    	<input type="checkbox" class="check" name="check" id="showGVal" valName="showGVal" propType="2">
     								        <span class="checkBoxDescription"><label for="showGVal">显示图表值</label></span>
@@ -460,11 +469,18 @@
                         </div>
                         </div>'
 </template>
+<style>
+.dd-range span{
+display:hidden;
+float:none;
+}
+</style>
 <script>
 	//'jquery','./zUtil','./zDialog','./zDs','jqueryUI'
 	import $ from "jquery"
 	import util  from "./../util/zUtil"
 	import jPicker from "../assets/vendor/jPicker/jPicker-1.1.6.min"
+	import range from "../assets/vendor/range/js/ion-rangeSlider/ion.rangeSlider"
 	export default {
 		 data(){
 					return{}
@@ -482,7 +498,7 @@
                              this.headerBox = document.getElementsByClassName("zlayoutTitle")[0];
                              this.compBox = document.getElementById("zRight_component");
                              this._triggleH_(false);
-
+							 this.renderRange();
                   			 this.defaultColor = "ffffff";//数据库返回的颜色值
                   			 this.titleFontColor = "titleFontColor";
                   			 this.bgColor = "bgColor";
@@ -492,24 +508,37 @@
                   			 this.pieColor = "pieColor";
 
                            },
+                           renderRange:function(){
+                           console.log($("#range"))
+                            $("#range").ionRangeSlider({
+                                   min:0,
+                                   max:100,
+                                   from:50,
+                                   onStart:function(e){
+                                       console.log(e)
+                                   },
+                                   onChange:function(e){
+                                       console.log(e)
+                                   }
+                               })
+                           },
                            triggleHeader : function(){
-                                       var isVisible = this.contentBox.is(":visible");
+                                       var isVisible = $(this.contentBox).is(":visible");
+                                       console.log(isVisible)
                                        if(isVisible){
-                                           this._triggleH_(false)
-                                       }else{
-                                       		alert(1)
                                            this._triggleH_(true)
+                                       }else{
+                                           this._triggleH_(false)
                                        }
                                    },
                             _triggleH_ : function(flag){
-
                                        $(this.dropBtn).removeClass();
                                        if(flag){
-                                           $(this.contentBox).show();
-                                          $( this.dropBtn).addClass("zlayout-dropUp");
+                                           $(this.contentBox).hide();
+                                          $( this.dropBtn).addClass("zlayout-dropDown");
                                        }else{
                                            $(this.contentBox).show();
-                                           $(this.dropBtn).addClass("zlayout-dropDown");
+                                           $(this.dropBtn).addClass("zlayout-dropUp");
                                        }
                                    },
 
@@ -573,6 +602,7 @@
 
                               //是否显示图例级联
                               $(this.compBox).find("#showLegend").on("click", function(e){
+
                               	e.stopPropagation();
                               	var checked = $(this).is(':checked');
 
@@ -702,7 +732,7 @@
                   			            },
                   			            images:
                   			            {
-                  			              clientPath: './js/lib/jPicker/images/', /* Path to image files */
+                  			              clientPath: 'src/assets/vendor/jPicker/images/', /* Path to image files */
                   			            },
                   		            },
                   		            commitCallback,
@@ -742,6 +772,7 @@
                   			});
                   			//标题font-style
                   			$("div[prop-type='fontOther'] > i", me.compBox).on("click",function(){
+
                   				 var fmark = "";
                   				 if( $(this).hasClass("active") ){
                   					 $(this).removeClass("active");
