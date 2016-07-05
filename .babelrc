@@ -1,5 +1,4 @@
 {
   "presets": ["es2015", "stage-0"],
-  "plugins": ["transform-runtime","add-module-exports","transform-decorators-legacy"],
-  "comments": false
+  "plugins": ["transform-runtime","add-module-exports","transform-decorators-legacy"]
 }

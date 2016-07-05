@@ -18,7 +18,7 @@ gulp.task('serve', cb =>{
       noInfo: false,
       hot: true,
       inline :true,
-      // historyApiFallback: true,
+      historyApiFallback: true,
       publicPath: myConfig.output.publicPath,
       stats: {
         colors: true

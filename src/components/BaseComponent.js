@@ -23,16 +23,14 @@ import Chart from "./Chart"
 		Chart	
 	},
 	template:`	
-		<div>
 			<Element id="abc" :max-num='1' :w='180' :h='180' >
 				 <component :is="compName"></component>
 			</Element>
-		</div>
-	`		
+	`
 })
 export default class BaseComponent extends Element{
 	data(){
-		var compName = this.options.content.type
+		//var compName = this.options.content.type
 		return {
 			compName:"Chart"
 		}

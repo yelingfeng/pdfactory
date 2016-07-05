@@ -10,7 +10,8 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: '[hash:8].[name].js'
+    filename: '[hash:8].[name].js',
+    publicPath: '/'
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -48,16 +49,12 @@ module.exports = {
   module: {
     loaders: [
     {
-      test: /\.vue$/,
-      loader: 'vue'
+      test: /\.vue$/,  loader: 'vue',include: path.join(__dirname,'src')
     }, 
     {
-      test: /\.js$/,
-      loader: 'babel',
-      exclude: /node_modules|vue\/dist|vue-hot-reload-api|vue-router\/|vue-loader/
+      test: /\.js$/,  loader: 'babel', exclude: /node_modules|vue\/dist|vue-hot-reload-api|vue-router\/|vue-loader/
     },
     { test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap' ) },
-    //{ test: /\.(css|scss)$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap!sass-loader?sourceMap&includePaths[]=' + path.resolve(__dirname, "./node_modules/compass-mixins/lib") ) },
     {
       test: /\.(jpe?g|png|gif)$/i,
       loaders: [
@@ -70,6 +67,11 @@ module.exports = {
     }
 
     ]
+  },
+  vue: {
+    loaders: {
+      js: 'babel'
+    }
   },
   resolve: {
     root: path.resolve(__dirname, 'node_modules'),

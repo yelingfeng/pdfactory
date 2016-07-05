@@ -4,10 +4,9 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  devtool: 'source-map',
+  devtool: 'eval-source-map',
   debug:true,
-  entry: [
-    'webpack/hot/only-dev-server',
+  entry: [ 
     './src/main'
   ],
   output: {
@@ -33,14 +32,10 @@ module.exports = {
   ],
   module: {
     loaders: [
+    {   
+       test: /\.vue$/,  loader: 'vue'   },
     {
-      test: /\.vue$/,
-      loader: 'vue'
-    },
-    {
-      test: /\.js$/,
-      loader: 'babel',
-      exclude: /node_modules|vue\/dist|vue-hot-reload-api|vue-router\/|vue-loader/
+      test: /\.js$/, loader: 'babel',  exclude: /node_modules|vue\/dist|vue-hot-reload-api|vue-router\/|vue-loader/
     }, 
     {
       test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap' )
