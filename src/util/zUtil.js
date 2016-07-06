@@ -25,6 +25,11 @@ const util  =  {
 		log : function(obj){
 			console.log(JSON.parse(JSON.stringify(obj)));
 		},
+
+
+		int(v){
+			return parseInt(v,10)
+		},
 		
 		
 		// 数组去重复

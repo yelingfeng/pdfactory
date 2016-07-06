@@ -19,7 +19,7 @@ export const TestAction = (store,message,type) =>{
 export const loadModules = ({dispatch}) => {
 
 	api.initSelectModules({
-		moduleId:'c4800b3a-f943-4bac-b2bc-fbef3ef52972'
+		moduleId:'2b1fa1a4-11b2-4169-ab37-e0408f8f655a'
 	}).then(rep => {
 		 dispatch(types.INIT_GLOBAL_DATA,rep.data.result)
 	});

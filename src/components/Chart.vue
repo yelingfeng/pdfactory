@@ -2,7 +2,6 @@
 	<div class="chart">
 		<p>this is chart</p>
 	</div>
-	
 
 </template>
 <script>

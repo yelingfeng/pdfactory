@@ -6,13 +6,12 @@
             <button @click="showToaster('warning')">waring</button>
             <button @click="showToaster('success')">success</button>
             <button @click="showToaster('info')">info</button>
-        </p><element v-for="comp in gData.components" :options="comp" ></element>-->
+        </p>
+        -->
 
-
-        <element :options="a"></element>
+        <element v-for="comp in gData.components" :options="comp" ></element>
     </div>
     <Toaster></Toaster>
-    <Right></Right>
 
 </template>
 
@@ -31,9 +30,6 @@
                  styleObj : {
                      width : 0,
                      height : 0
-                 },
-                 a:{
-                     type:"1"
                  }
              }
          },
@@ -53,7 +49,7 @@
 
             _init(){
 
-//                this.loadModules();
+                this.loadModules();
 
                 this.styleObj.width  = $(window).width() + "px";
                 this.styleObj.height = $(window).height() + "px";
@@ -77,7 +73,6 @@
         components : {
             element,
             Toaster,
-            Right
         }
     }
 </script>

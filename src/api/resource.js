@@ -8,7 +8,7 @@ import {API_ROOT} from '../config'
 Vue.use(VueResource);
 // HTTP相关
 Vue.http.options.crossOrigin = true 
-Vue.http.options.xhr = {withCredentials: true}
+//Vue.http.options.xhr = {withCredentials: true}
 
 
 
