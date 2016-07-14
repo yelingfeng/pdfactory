@@ -31,50 +31,40 @@
                  }
              }
          },
-        {
+         vuex:{
             getters : {
-                gData : ({app});
-            =>
-                app.globalData
-            }
-        ,
+                gData : ({app})=> app.globalData
+            },
             actions : {
                 TestAction, loadModules
             }
         },
         ready(){
             this._init();
-        };,
-        {
-            _init()
-            {
-
-                this.loadModules();
-
-                this.styleObj.width = $(window).width() + "px";
-                this.styleObj.height = $(window).height() + "px";
-//                var isOpacity = Utils.getUrlString("isOpacity");
-//                if(isOpacity && isOpacity == "1"){
-//                    $("body").css({
-//                        "background":"#072E67 url(image/zld-bg.jpg) no-repeat center 0",
-//                        "background-size":"cover"
-//                    })
-//                }
-                $("body").addClass("bg-body")
-
-            }
-            ;
-        ,
-            showToaster(type)
-            {
-                this.TestAction("测试0001", type)
-            }
-            ;
         },
-        {
-            box,
-                    Toaster,
-        }
+        methods:{
+            _init(){
+
+              this.loadModules();
+              this.styleObj.width = $(window).width() + "px";
+              this.styleObj.height = $(window).height() + "px";
+            //                var isOpacity = Utils.getUrlString("isOpacity");
+            //                if(isOpacity && isOpacity == "1"){
+            //                    $("body").css({
+            //                        "background":"#072E67 url(image/zld-bg.jpg) no-repeat center 0",
+            //                        "background-size":"cover"
+            //                    })
+            //                }
+              $("body").addClass("bg-body")
+          },
+          showToaster(type){
+                this.TestAction("测试0001", type)
+          }
+      },
+      components:{
+            box,Toaster
+      }
+      
     }
 </script>
 

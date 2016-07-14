@@ -4,7 +4,7 @@ import Component from "vue-class-component"
 import {log,int} from "./../util/zUtil"
 import {defaultOtion} from "./../util/componentStrategy"
 
-import Chart from "./Chart" 
+import Chart from "./Chart"
 @Component({
 	props : {
 		options:{
@@ -24,14 +24,14 @@ import Chart from "./Chart"
 		}
 	},
 	components:{
-		Chart	
+		Chart
 	},
 	template:`
 		<Element id="abc" :max-num='1' :w="w" :h="h" :x="x"  :y="y" >
 			 <component :is="compName"></component>
 		</Element>
 	`
-});
+})
 export default class BaseComponent extends Element{
 	data(){
 		//var compName = this.options.content.type
@@ -59,7 +59,7 @@ export default class BaseComponent extends Element{
 		//let zid = this.isView ? option.zid + "_view" : option.zid ;
 
 		//let child = option.child ;
-		//let visible = int(option.visible);// ÊÇ·ñ¿É¼û×ÓÍ¼
+		//let visible = int(option.visible);// ï¿½Ç·ï¿½ï¿½É¼ï¿½ï¿½ï¿½Í¼
 		//let isChild = visible == 0 ? true : false;
 		//let remark = option.remark;
 		//let title = option.titleName;
@@ -75,9 +75,9 @@ export default class BaseComponent extends Element{
 		//let isMulti = childType ;
 		//let name = option.name;
 		//let maxNum = option.num;
-        var op = defaultOtion(this.myOption.content.type ,this.myOption );
-        log(op);
-        this.SyncComponentOption(op);
+    var op = defaultOtion(this.myOption.content.type ,this.myOption );
+    log(op);
+    this.SyncComponentOption(op);
 		this.w = width ;
 		this.h = height ;
 		this.x = left ;
@@ -111,8 +111,8 @@ export default class BaseComponent extends Element{
 		//	_opt = {
 		//		zid : _id,
 		//		border : border,
-		//		// ¿É¼û×ÓÍ¼ »¹ÊÇ²»¿É¼û×ÓÍ¼ 1 ¿É¼û 0 ²»¿É¼û
-		//		// ×ÓÍ¼±íID
+		//		// ï¿½É¼ï¿½ï¿½ï¿½Í¼ ï¿½ï¿½ï¿½Ç²ï¿½ï¿½É¼ï¿½ï¿½ï¿½Í¼ 1 ï¿½É¼ï¿½ 0 ï¿½ï¿½ï¿½É¼ï¿½
+		//		// ï¿½ï¿½Í¼ï¿½ï¿½ID
 		//		css : {
 		//			width : int(it.coordinate.width),
 		//			height :int(it.coordinate.height),
