@@ -12,6 +12,7 @@
         <element :options="a"></element>
     </div>
     <Toaster></Toaster>
+    <Left></Left>
     <Right></Right>
 
 </template>
@@ -22,7 +23,7 @@
     import {TestAction,loadModules} from "./../vuex/actions"
     import Utils  from "./../util/zUtil"
     import Right from './Right'
-
+    import Left from "./Left"
     import element from "./BaseComponent"
     export default {
          data(){
@@ -77,6 +78,7 @@
         components : {
             element,
             Toaster,
+            Left,
             Right
         }
     }
