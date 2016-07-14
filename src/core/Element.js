@@ -139,7 +139,7 @@ export default class Element {
     }    
 
     ready(){
-        this.addEvent('handleMove',this)
+       // this.addEvent('handleMove',this)
     }
     beforeDestroy(){
         this.removeEvent('handleMove',this)
