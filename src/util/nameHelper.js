@@ -6,11 +6,9 @@ function getBoxName (type){
     var name = getName(type);
 
     var len  = me.getComponentTypeNum(type) ;
-    // 获取字母
     var codekey = getCharCode(len + 1);
 
-    // 处理下重名问题
-    codekey = Zlay.handlerCodekey(codekey)
+    codekey = Zlay.handlerCodekey(codekey);
 
     name += codekey ;
 

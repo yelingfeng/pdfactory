@@ -6,7 +6,6 @@ import {ZCOMP_TYPE as CompType} from "./ResourcesConfig"
 import {MorkData} from "./mockData"
 
 
-
 function chartSetting(type , n){
 	var option = {};
 	switch(type){
@@ -78,9 +77,9 @@ function chartSetting(type , n){
 			}
 
 			break;
-		default:;
-	};
-	return option;
+        default:
+    }
+    return option;
 
 }
 
@@ -89,20 +88,22 @@ function chartSetting(type , n){
 const getOptionRule = {
 	[CompType.CHART](option){
 		option.child  = [];
-		option.component.data = MorkData(CompType.CHART,option.component.chartCategory,option.component.chartType,option.component.childType);
-		option.component.dataOption = chartSetting(option.component.chartType,option.component.childType);
+        option.component = {
+            data :  MorkData(CompType.CHART,option.content.chartCategory,option.content.chartType,option.content.childType),
+            dataOption :chartSetting(option.content.chartType,option.content.childType)
+        };
 		return option;
 	},
 	[CompType.TABLE](option){
-		var rs = /z_table_showHide|z_table_page/.test(option.component.chartType);
+		var rs = /z_table_showHide|z_table_page/.test(option.content.chartType);
 		if(rs) option.css.width = 525;
-		option.component.tableType = type;
+		option.component.tableType = CompType.TABLE;
 		return option ;
 	},
 	[CompType.TEXT](option){
 		option.css.height = 50;
-		option.component.textType = type;
-		option.component.isMulti = option.component.chartType == "1" ? true : false;
+		option.component.textType = CompType.TEXT;
+		option.component.isMulti = option.content.chartType == "1" ? true : false;
 		return option;
 	},
 	[CompType.SEARCH](option){
@@ -120,7 +121,7 @@ const getOptionRule = {
 		return option;
 	},
 
-}
+};
 
 
 const getNameRule = {
@@ -142,19 +143,16 @@ const getNameRule = {
 	[CompType.OTHER](){
 		return "特殊";
 	},
-}
+};
 
-/**
-* 
-* 组件类型策略对象
-*  
-**/
+
 export default {
 
-    defaultOtion(type , option){
-	   return getOptionRule[type](option);
+    getName(type){
+        return getNameRule[type];
     },
-	getName(type){
-		return getNameRule[type];
-	}
+    defaultOtion(type,option){
+        return getOptionRule[type](option)
+    }
 }
+

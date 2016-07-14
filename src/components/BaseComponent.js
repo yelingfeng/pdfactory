@@ -1,11 +1,11 @@
 import Element from "./../core/Element"
-import {TestAction} from "./../vuex/actions"
+import {TestAction,SyncComponentOption} from "./../vuex/actions"
 import Component from "vue-class-component"
 import {log,int} from "./../util/zUtil"
+import {defaultOtion} from "./../util/componentStrategy"
 
 import Chart from "./Chart" 
-
-@Component({	
+@Component({
 	props : {
 		options:{
 			type:Object,
@@ -20,62 +20,64 @@ import Chart from "./Chart"
 	},
 	vuex:{
 		actions:{
-			TestAction	
+			TestAction,SyncComponentOption
 		}
 	},
 	components:{
 		Chart	
 	},
-	template:`	
+	template:`
 		<Element id="abc" :max-num='1' :w="w" :h="h" :x="x"  :y="y" >
 			 <component :is="compName"></component>
 		</Element>
 	`
-})
+});
 export default class BaseComponent extends Element{
 	data(){
 		//var compName = this.options.content.type
 		return {
 			compName:"Chart",
+            myOption : {}
 		}
 	}
 	ready(){
 		this.createComponent();
 	}
 	createComponent(){
+        this.myOption = Object.assign({component:{}},this.options);
+        let width = int( this.myOption.coordinate.width);
+        let height = int( this.myOption.coordinate.height);
+        let top = int( this.myOption.coordinate.y);
+        let left = int( this.myOption.coordinate.x);
+		//log(option)
+		//let zindex = option.levelIndex;
+		//let childType = option.content.childType ;
+		//let chartType = option.content.chartType ;
+		//let tableType = option.content.tableType;
+		//let border = option.border;
+		//let clsName = option.clsName ;
+		//let zid = this.isView ? option.zid + "_view" : option.zid ;
 
-		let option =  this.options;
-		log(option)
-		let zindex = option.levelIndex;
-		let childType = option.content.childType ;
-		let chartType = option.content.chartType ;
-		let tableType = option.content.tableType;
-		let border = option.border;
-		let clsName = option.clsName ;
-		let zid = this.isView ? option.zid + "_view" : option.zid ;
-		let width = int(option.coordinate.width);
-		let height = int(option.coordinate.height);
-		let top = int(option.coordinate.y);
-		let left = int(option.coordinate.x);
-		let child = option.child ;
-		let visible = int(option.visible);// 是否可见子图
-		let isChild = visible == 0 ? true : false;
-		let remark = option.remark;
-		let title = option.titleName;
-		let opacity = int(option.coordinate.opacity);
-		let cascade = option.content.cascade ;
-		let	datasets  = option.content.datasets;
-		let componentType  = option.content.type ;
-		let dataOption = option.data ;
-		let chartCategory = option.content.chartCategory;
-		let content = option.content;
-		let textType = clsName;
-		let props = option.props ;
-		let isMulti = childType ;
-		let type = option.content.type ;
-
-
-
+		//let child = option.child ;
+		//let visible = int(option.visible);// 是否可见子图
+		//let isChild = visible == 0 ? true : false;
+		//let remark = option.remark;
+		//let title = option.titleName;
+		//let opacity = int(option.coordinate.opacity);
+		//let cascade = option.content.cascade ;
+		//let	datasets  = option.content.datasets;
+		//let componentType  = option.content.type ;
+		//let dataOption = option.data ;
+		//let chartCategory = option.content.chartCategory;
+		//let content = option.content;
+		//let textType = clsName;
+		//let props = option.props ;
+		//let isMulti = childType ;
+		//let name = option.name;
+		//let maxNum = option.num;
+        var op = defaultOtion(this.myOption.content.type ,this.myOption );
+        log(op);
+        this.SyncComponentOption(op);
 		this.w = width ;
 		this.h = height ;
 		this.x = left ;

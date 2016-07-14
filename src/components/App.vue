@@ -1,6 +1,5 @@
 <template>
     <div class="zlayoutCenterView" :style="styleObj">
-
         <!-- <p>
             <button @click="showToaster('error')">error</button>
             <button @click="showToaster('warning')">waring</button>
@@ -8,8 +7,7 @@
             <button @click="showToaster('info')">info</button>
         </p>
         -->
-
-        <element v-for="comp in gData.components" :options="comp" ></element>
+        <box v-for="comp in gData.components" :options="comp" ></box>
     </div>
     <Toaster></Toaster>
 
@@ -22,7 +20,7 @@
     import Utils  from "./../util/zUtil"
     import Right from './Right'
 
-    import element from "./BaseComponent"
+    import box from "./BaseComponent"
     export default {
          data(){
              return {
@@ -33,46 +31,49 @@
                  }
              }
          },
-        vuex : {
-
+        {
             getters : {
-                gData : ({app}) => app.globalData
-            },
-            actions : {
-                TestAction,loadModules
+                gData : ({app});
+            =>
+                app.globalData
             }
-         },
+        ,
+            actions : {
+                TestAction, loadModules
+            }
+        },
         ready(){
             this._init();
-        },
-        methods:{
-
-            _init(){
+        };,
+        {
+            _init()
+            {
 
                 this.loadModules();
 
-                this.styleObj.width  = $(window).width() + "px";
+                this.styleObj.width = $(window).width() + "px";
                 this.styleObj.height = $(window).height() + "px";
-                var isOpacity = Utils.getUrlString("isOpacity");
-
-                if(isOpacity && isOpacity == "1"){
-                    $("body").css({
-                        "background":"#072E67 url(image/zld-bg.jpg) no-repeat center 0",
-                        "background-size":"cover"
-                    })
-                }
-
+//                var isOpacity = Utils.getUrlString("isOpacity");
+//                if(isOpacity && isOpacity == "1"){
+//                    $("body").css({
+//                        "background":"#072E67 url(image/zld-bg.jpg) no-repeat center 0",
+//                        "background-size":"cover"
+//                    })
+//                }
                 $("body").addClass("bg-body")
 
-            },
-
-            showToaster(type){
-                this.TestAction("测试0001",type)
             }
+            ;
+        ,
+            showToaster(type)
+            {
+                this.TestAction("测试0001", type)
+            }
+            ;
         },
-        components : {
-            element,
-            Toaster,
+        {
+            box,
+                    Toaster,
         }
     }
 </script>
