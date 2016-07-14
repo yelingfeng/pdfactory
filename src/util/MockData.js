@@ -3,27 +3,29 @@
  */
 import  {CHART_CATEGORY as CATEGORY ,CHART_TYPE as TYPE   } from "./../util/ResourcesConfig"
 import  $  from "jquery"
-const  FUSIONCHART = CATEGORY.FUSIONCHART
-const  ECHART =CATEGORY.ECHART
-const  BAR = TYPE.BAR
-const  LINE = TYPE.LINE
-const  MAP = TYPE.MAP
-const  PIE = TYPE.PIE
-const  GAUGE = TYPE.GAUGE
-const  FORCE  = TYPE.FORCE
-const  PYRAMID = TYPE.PYRAMID
-const  HORIZONTAL = TYPE.HORIZONTAL
-const  HEATMAP = TYPE.HEATMAP
-const  STATUS = TYPE.STATUS
+const  FUSIONCHART = CATEGORY.FUSIONCHART;
+const  ECHART =CATEGORY.ECHART;
+const  BAR = TYPE.BAR;
+const  LINE = TYPE.LINE;
+const  MAP = TYPE.MAP;
+const  PIE = TYPE.PIE;
+const  GAUGE = TYPE.GAUGE;
+const  FORCE  = TYPE.FORCE;
+const  PYRAMID = TYPE.PYRAMID;
+const  HORIZONTAL = TYPE.HORIZONTAL;
+const  HEATMAP = TYPE.HEATMAP;
+const  STATUS = TYPE.STATUS;
 let CD = {
     FUSIONCHART,
     ECHART
-}
+};
+CD[FUSIONCHART] = {};
+CD[ECHART] = {};
 
 CD[FUSIONCHART][BAR] =  {
     "1" :[{label:"测试01",value:"80000"},{label:"测试02",value:"70000"},{label:"测试03",value:"60000"},{label:"测试04",value:"55000"},{label:"测试05",value:"45000"},{label:"测试06",value:"35000"},{label:"测试07",value:"33000"},{label:"测试08",value:"32000"},{label:"测试09",value:"30000"},{label:"测试10",value:"25000"}],
 
-    "2" :[{label:"测试01",value:"80000"},{label:"测试02",value:"70000"},{label:"测试03",value:"60000"},{label:"测试04",value:"55000"},{label:"测试05",value:"45000"},{label:"测试06",value:"35000"},{label:"测试07",value:"33000"},{label:"测试08",value:"32000"},{label:"测试09",value:"30000"},{label:"测试10",value:"25000"}]
+    "2" :[{label:"测试01",value:"80000"},{label:"测试02",value:"70000"},{label:"测试03",value:"60000"},{label:"测试04",value:"55000"},{label:"测试05",value:"45000"},{label:"测试06",value:"35000"},{label:"测试07",value:"33000"},{label:"测试08",value:"32000"},{label:"测试09",value:"30000"},{label:"测试10",value:"25000"}],
 
     "3" :[{label:"测试01",value:"80000"},{label:"测试02",value:"70000"},{label:"测试03",value:"60000"},{label:"测试04",value:"55000"},{label:"测试05",value:"45000"},{label:"测试06",value:"35000"},{label:"测试07",value:"33000"},{label:"测试08",value:"32000"},{label:"测试09",value:"30000"},{label:"测试10",value:"25000"}],
     "4":[
@@ -515,22 +517,22 @@ function MorkData(componentType,categoryType,type,childType) {
     var args =[categoryType,type,childType];
     switch(componentType){
         case TYPE.CHART :
-            return getChartData(...args)
+            return getChartData(...args);
             break;
         case TYPE.TEXT :
-            return getTextData(...args)
+            return getTextData(...args);
             break;
         case TYPE.TABLE :
-            return getTableData(...args)
+            return getTableData(...args);
             break;
         case TYPE.SEARCH :
-            return getSearchData(...args)
+            return getSearchData(...args);
             break;
         case TYPE.DATERANGE :
-            return getDateRangeData(...args)
+            return getDateRangeData(...args);
             break;
         case TYPE.OTHER :
-            return getOtherData(...args)
+            return getOtherData(...args);
             break;
         default:break;
     }

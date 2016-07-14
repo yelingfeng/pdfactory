@@ -3,7 +3,7 @@
  */
 
 import {ZCOMP_TYPE as CompType} from "./ResourcesConfig"
-import {MorkData} from "./mockData"
+import {MorkData} from "./MockData"
 
 
 function chartSetting(type , n){
