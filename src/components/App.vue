@@ -19,7 +19,6 @@
     import {TestAction,loadModules} from "./../vuex/actions"
     import Utils  from "./../util/zUtil"
     import Right from './Right'
-
     import box from "./BaseComponent"
     export default {
          data(){
@@ -44,7 +43,6 @@
         },
         methods:{
             _init(){
-
               this.loadModules();
               this.styleObj.width = $(window).width() + "px";
               this.styleObj.height = $(window).height() + "px";
@@ -75,7 +73,6 @@
   body{
       overflow: hidden;
   }
-
  .zlayoutCenterView{
     overflow: hidden;
  }
