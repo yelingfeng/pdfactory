@@ -1,8 +1,9 @@
 /**
  * Created by  on 2016/4/1.
  */
-import {initSelectModules} from "./resource";
+import {initSelectModules,getChartView} from "./resource";
 
 export default {
-    initSelectModules
+    initSelectModules,
+    getChartView,
 }

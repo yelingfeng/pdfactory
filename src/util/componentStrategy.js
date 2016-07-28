@@ -145,14 +145,40 @@ const getNameRule = {
 	},
 };
 
+// 根据类型 返回vue用的组件名称
+const getVueComponentName = {
+	[CompType.CHART](){
+		return "Chart";
+	},
+	[CompType.TABLE](){
+		return "Tables" ;
+	},
+	[CompType.TEXT](){
+		return "Text";
+	},
+	[CompType.SEARCH](){
+		return "Search";
+	},
+	[CompType.DATERANGE](){
+		return "Daterange";
+	},
+	[CompType.OTHER](){
+		return "Ohter";
+	},
+};
+
+
 
 export default {
 
     getName(type){
-        return getNameRule[type];
+        return getNameRule[type]();
     },
     defaultOtion(type,option){
         return getOptionRule[type](option)
-    }
+    },
+	getVueComponent(type){
+		return getVueComponentName[type]();
+	}
 }
 

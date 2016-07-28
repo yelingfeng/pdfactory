@@ -31,10 +31,10 @@ const  defaultOption = {
 
 
 const template =  `
-     <div class="zlayoutElement" :class="{'`+RC.ZElEMENT_ELE_FOCUS+`':isEleFocus}"  id="{{id}}" maxNum={{maxNum}} 
-            @mousedown='handleDown' @mouseup='handleUp' :style='boxStyle'>
-        <div class="zlayout-eleContent">
-           <div class="zlayout-component">
+     <div class="zlayoutElement" v-el:element :class="{'`+RC.ZElEMENT_ELE_FOCUS+`':isEleFocus}"  id="{{zid}}"
+            @mousedown='handleDown' @mouseup='handleUp' :style='boxStyle' >
+        <div class="zlayout-eleContent" >
+           <div class="zlayout-component"  :style='contentBoxStyle'>
               <slot ></slot> 
            </div> 
         </div>
@@ -93,14 +93,9 @@ const props = {
             return {parent:true}
         }
       },
-      id : {
+      zid : {
          type :String,
-         default :''
-      },
-      maxNum :{
-         type :Number,
-         default :''
-      } 
+      }
 }
 
 
@@ -121,12 +116,18 @@ const props = {
               height:this.h+'px',
               transform:'translate('+this.x+'px,'+this.y+'px)'
             }
-        }
+        },
+       contentBoxStyle(){
+           return {
+               width :this.w +'px',
+               height : (this.h - 25) + "px"
+           }
+       }
    }
 })
 @mixin(dragResize)
 export default class Element {
-    
+
     data(){
         return {
           lastX: 0,
@@ -134,17 +135,39 @@ export default class Element {
           dragging:false,
           resizeStartX:0,
           resizeStartY:0,
-          resizing:false
+          resizing:false,
+          contentBoxStyle:{}
         }
     }    
 
     ready(){
        // this.addEvent('handleMove',this)
+
+        this.contentBox = $(this.$els.contentBox);
     }
     beforeDestroy(){
         this.removeEvent('handleMove',this)
     }
-    
+
+    /**
+     *
+     */
+    getBoundSize(){
+        //console.log(this.$parent.$el.nextSibling)
+        var $centerBox = $("#"+RC.VIEW_CENTER_ID);
+        let obj ={
+            parentWidth :$centerBox.width(),
+            parentHeight : $centerBox.height(),
+            top : this.y,
+            left  : this.x,
+            right : $centerBox.outerWidth(true) - this.w - this.x ,
+            bottom : $centerBox.outerHeight(true)  - this.h - this.y,
+            w : this.w,
+            h : this.h
+        };
+        return obj ;
+    }
+
 
 }
 

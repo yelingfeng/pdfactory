@@ -10,13 +10,13 @@
         "childList": [],
         "childSize": null,
         "clsName": "",
-        "code": "Í¼±íA",
+        "code": "å›¾è¡¨A",
         "content": {
           "cascade": "",
           "chartCategory": "z_chart",
           "chartType": "line",
           "childType": "cq3",
-          "code": "Í¼±íA",
+          "code": "å›¾è¡¨A",
           "componentId": "2724571b-0914-483a-ae63-1adcee295e2c",
           "content": "",
           "contentObj": null,
@@ -40,7 +40,7 @@
               "refreshType": "",
               "remark": "",
               "rows": "",
-              "sql": "½üÒ»ÔÂ¸ĞÈ¾¶ñÒâÊÂ¼şµÄÓÃ»§±ä»¯Ç÷ÊÆ",
+              "sql": "è¿‘ä¸€æœˆæ„ŸæŸ“æ¶æ„äº‹ä»¶çš„ç”¨æˆ·å˜åŒ–è¶‹åŠ¿",
               "sqlType": "",
               "type": "2"
             },
@@ -61,7 +61,7 @@
               "refreshType": "0",
               "remark": "",
               "rows": "",
-              "sql": "SELECT DATE_FORMAT(day_time,'%Y-%m-%d') AS NAME, \n       day_num AS VALUE, \n       CONCAT(DATE_FORMAT(day_time,'%Y-%m-%d'), '<p/>', '¸ĞÈ¾ÊıÁ¿£º',CAST(day_num AS CHAR), ' ´Î') AS info, '¸ĞÈ¾' AS category\nFROM mobinterana_i_controlevente_day_stat\nWHERE day_time>= ADDDATE(NOW(), INTERVAL -1 MONTH)",
+              "sql": "SELECT DATE_FORMAT(day_time,'%Y-%m-%d') AS NAME, \n       day_num AS VALUE, \n       CONCAT(DATE_FORMAT(day_time,'%Y-%m-%d'), '<p/>', 'æ„ŸæŸ“æ•°é‡ï¼š',CAST(day_num AS CHAR), ' æ¬¡') AS info, 'æ„ŸæŸ“' AS category\nFROM mobinterana_i_controlevente_day_stat\nWHERE day_time>= ADDDATE(NOW(), INTERVAL -1 MONTH)",
               "sqlType": "1",
               "type": "1"
             }
@@ -142,7 +142,7 @@
           }
         },
         "remark": "",
-        "titleName": "½üÒ»ÔÂ¸ĞÈ¾¶ñÒâÊÂ¼şµÄÓÃ»§±ä»¯Ç÷ÊÆ",
+        "titleName": "è¿‘ä¸€æœˆæ„ŸæŸ“æ¶æ„äº‹ä»¶çš„ç”¨æˆ·å˜åŒ–è¶‹åŠ¿",
         "visible": "1",
         "zid": "zid-3629a83a-0b743313-3be59e35"
       },
@@ -152,13 +152,13 @@
         "childList": [],
         "childSize": null,
         "clsName": "",
-        "code": "Í¼±íB",
+        "code": "å›¾è¡¨B",
         "content": {
-          "cascade": "Í¼±íA.NAME",
+          "cascade": "å›¾è¡¨A.NAME",
           "chartCategory": "f_chart",
           "chartType": "pie",
           "childType": "2",
-          "code": "Í¼±íB",
+          "code": "å›¾è¡¨B",
           "componentId": "9dc4b6fe-7f98-4f89-9d90-7a30c9ef9daa",
           "content": "",
           "contentObj": null,
@@ -178,16 +178,16 @@
               "page": "",
               "paramStr": [
                 {
-                  "name": "Í¼±íA.NAME",
+                  "name": "å›¾è¡¨A.NAME",
                   "value": ""
                 }
               ],
-              "params": "[{\"name\":\"Í¼±íA.NAME\",\"value\":\"\"}]",
+              "params": "[{\"name\":\"å›¾è¡¨A.NAME\",\"value\":\"\"}]",
               "refreshTime": "",
               "refreshType": "",
               "remark": "",
               "rows": "",
-              "sql": "%%Í¼±íA.NAME%% Êı¾İÀ´Ô´Õ¼±È",
+              "sql": "%%å›¾è¡¨A.NAME%% æ•°æ®æ¥æºå æ¯”",
               "sqlType": "",
               "type": "2"
             },
@@ -204,16 +204,16 @@
               "page": "",
               "paramStr": [
                 {
-                  "name": "Í¼±íA.NAME",
+                  "name": "å›¾è¡¨A.NAME",
                   "value": ""
                 }
               ],
-              "params": "[{\"name\":\"Í¼±íA.NAME\",\"value\":\"\"}]",
+              "params": "[{\"name\":\"å›¾è¡¨A.NAME\",\"value\":\"\"}]",
               "refreshTime": "",
               "refreshType": "0",
               "remark": "",
               "rows": "",
-              "sql": "SELECT data_source AS NAME, VALUE,\n          CONCAT('À´Ô´£º ',data_source, '<p/>', '¸ĞÈ¾ÊıÁ¿£º',CAST(VALUE AS CHAR), ' ´Î') AS info, '¸ĞÈ¾' AS category\nFROM \n(\nSELECT CASE WHEN data_source = 'CM' THEN 'ÖØÇìÒÆ¶¯' \n\t         WHEN data_source = 'CU' THEN 'ÖØÇìÁªÍ¨'\n\t         WHEN data_source = 'CT' THEN 'ÖØÇìµçĞÅ'\n\t         WHEN data_source = 'CNCERT' THEN '¹ú¼ÒÖĞĞÄ' END AS data_source, SUM(num) AS VALUE\n\t          \nFROM mobinterana_i_controlevente\nWHERE event_time_day = %%Í¼±íA.NAME%%\nGROUP BY data_source\n) t",
+              "sql": "SELECT data_source AS NAME, VALUE,\n          CONCAT('æ¥æºï¼š ',data_source, '<p/>', 'æ„ŸæŸ“æ•°é‡ï¼š',CAST(VALUE AS CHAR), ' æ¬¡') AS info, 'æ„ŸæŸ“' AS category\nFROM \n(\nSELECT CASE WHEN data_source = 'CM' THEN 'é‡åº†ç§»åŠ¨' \n\t         WHEN data_source = 'CU' THEN 'é‡åº†è”é€š'\n\t         WHEN data_source = 'CT' THEN 'é‡åº†ç”µä¿¡'\n\t         WHEN data_source = 'CNCERT' THEN 'å›½å®¶ä¸­å¿ƒ' END AS data_source, SUM(num) AS VALUE\n\t          \nFROM mobinterana_i_controlevente\nWHERE event_time_day = %%å›¾è¡¨A.NAME%%\nGROUP BY data_source\n) t",
               "sqlType": "1",
               "type": "1"
             }
@@ -294,7 +294,7 @@
           }
         },
         "remark": "",
-        "titleName": " Êı¾İÀ´Ô´Õ¼±È",
+        "titleName": " æ•°æ®æ¥æºå æ¯”",
         "visible": "1",
         "zid": "zid-3d608040-9355e4e8-4b5ffdaf"
       },
@@ -304,13 +304,13 @@
         "childList": [],
         "childSize": null,
         "clsName": "",
-        "code": "±í¸ñAA",
+        "code": "è¡¨æ ¼AA",
         "content": {
-          "cascade": "Í¼±íA.NAME",
+          "cascade": "å›¾è¡¨A.NAME",
           "chartCategory": "",
           "chartType": "z_table_normal",
           "childType": "",
-          "code": "±í¸ñAA",
+          "code": "è¡¨æ ¼AA",
           "componentId": "de306897-3b65-43c7-a9dd-1fb9f54d6c4d",
           "content": "",
           "contentObj": null,
@@ -330,16 +330,16 @@
               "page": "",
               "paramStr": [
                 {
-                  "name": "Í¼±íA.NAME",
+                  "name": "å›¾è¡¨A.NAME",
                   "value": ""
                 }
               ],
-              "params": "[{\"name\":\"Í¼±íA.NAME\",\"value\":\"\"}]",
+              "params": "[{\"name\":\"å›¾è¡¨A.NAME\",\"value\":\"\"}]",
               "refreshTime": "",
               "refreshType": "",
               "remark": "",
               "rows": "",
-              "sql": "%%Í¼±íA.NAME%% ÓÃ»§¸ĞÈ¾¶ñÒâÊÂ¼şTOP100",
+              "sql": "%%å›¾è¡¨A.NAME%% ç”¨æˆ·æ„ŸæŸ“æ¶æ„äº‹ä»¶TOP100",
               "sqlType": "",
               "type": "2"
             },
@@ -356,16 +356,16 @@
               "page": "",
               "paramStr": [
                 {
-                  "name": "Í¼±íA.NAME",
+                  "name": "å›¾è¡¨A.NAME",
                   "value": ""
                 }
               ],
-              "params": "[{\"name\":\"Í¼±íA.NAME\",\"value\":\"\"}]",
+              "params": "[{\"name\":\"å›¾è¡¨A.NAME\",\"value\":\"\"}]",
               "refreshTime": "",
               "refreshType": "0",
               "remark": "",
               "rows": "",
-              "sql": "SELECT virus_name AS '¶ñÒâ³ÌĞò', \n\td_ip AS '¿ØÖÆIP',\n\ts_ip AS 'ÊÜ¿ØIP', \n\tphone AS 'ÊÖ»úºÅ' ,\n        count(1) AS '·¢Éú´ÎÊı', \n\tdate_format(MAX(last_time),'%H:%i:%s') AS '×î½üÒ»´Î·¢ÉúÊ±¼ä'\nFROM mobinterana_i_controlevente\nWHERE event_time_day = %%Í¼±íA.NAME%%\nGROUP BY virus_name, phone, d_ip, s_ip\norder by  ·¢Éú´ÎÊı desc\nlimit 100",
+              "sql": "SELECT virus_name AS 'æ¶æ„ç¨‹åº', \n\td_ip AS 'æ§åˆ¶IP',\n\ts_ip AS 'å—æ§IP', \n\tphone AS 'æ‰‹æœºå·' ,\n        count(1) AS 'å‘ç”Ÿæ¬¡æ•°', \n\tdate_format(MAX(last_time),'%H:%i:%s') AS 'æœ€è¿‘ä¸€æ¬¡å‘ç”Ÿæ—¶é—´'\nFROM mobinterana_i_controlevente\nWHERE event_time_day = %%å›¾è¡¨A.NAME%%\nGROUP BY virus_name, phone, d_ip, s_ip\norder by  å‘ç”Ÿæ¬¡æ•° desc\nlimit 100",
               "sqlType": "1",
               "type": "1"
             }
@@ -446,7 +446,7 @@
           }
         },
         "remark": "",
-        "titleName": " ÓÃ»§¸ĞÈ¾¶ñÒâÊÂ¼şTOP100",
+        "titleName": " ç”¨æˆ·æ„ŸæŸ“æ¶æ„äº‹ä»¶TOP100",
         "visible": "1",
         "zid": "zid-50432379-d149c6ab-06d09694"
       }
@@ -454,10 +454,10 @@
     "createTime": "2016-06-16 16:05:25",
     "createUser": "551214bf-931f-43dd-95ea-676d8f62b95d",
     "createUserName": "",
-    "desc": "ãÆİ¼-0616-ÎğÉ¾³ı",
+    "desc": "é—«è-0616-å‹¿åˆ é™¤",
     "id": "2b1fa1a4-11b2-4169-ab37-e0408f8f655a",
     "layout": "",
-    "name": "Ê®¡¢ÓÃ»§¸ĞÈ¾¶ñÒâÊÂ¼şÊıÁ¿±ä»¯Ç÷ÊÆ",
+    "name": "åã€ç”¨æˆ·æ„ŸæŸ“æ¶æ„äº‹ä»¶æ•°é‡å˜åŒ–è¶‹åŠ¿",
     "parameters": [],
     "parttern": "0",
     "pid2TreeComponents": [
@@ -471,13 +471,13 @@
             "childList": [],
             "childSize": null,
             "clsName": "",
-            "code": "Í¼±íB",
+            "code": "å›¾è¡¨B",
             "content": {
-              "cascade": "Í¼±íA.NAME",
+              "cascade": "å›¾è¡¨A.NAME",
               "chartCategory": "f_chart",
               "chartType": "pie",
               "childType": "2",
-              "code": "Í¼±íB",
+              "code": "å›¾è¡¨B",
               "componentId": "9dc4b6fe-7f98-4f89-9d90-7a30c9ef9daa",
               "content": "",
               "contentObj": null,
@@ -497,13 +497,13 @@
                   "page": "",
                   "paramStr": [
                     {
-                      "name": "Í¼±íA.NAME",
+                      "name": "å›¾è¡¨A.NAME",
                       "value": ""
                     }
                   ],
                   "params": [
                     {
-                      "name": "Í¼±íA.NAME",
+                      "name": "å›¾è¡¨A.NAME",
                       "value": ""
                     }
                   ],
@@ -511,7 +511,7 @@
                   "refreshType": "",
                   "remark": "",
                   "rows": "",
-                  "sql": "%%Í¼±íA.NAME%% Êı¾İÀ´Ô´Õ¼±È",
+                  "sql": "%%å›¾è¡¨A.NAME%% æ•°æ®æ¥æºå æ¯”",
                   "sqlType": "",
                   "type": "2"
                 },
@@ -528,13 +528,13 @@
                   "page": "",
                   "paramStr": [
                     {
-                      "name": "Í¼±íA.NAME",
+                      "name": "å›¾è¡¨A.NAME",
                       "value": ""
                     }
                   ],
                   "params": [
                     {
-                      "name": "Í¼±íA.NAME",
+                      "name": "å›¾è¡¨A.NAME",
                       "value": ""
                     }
                   ],
@@ -542,7 +542,7 @@
                   "refreshType": "0",
                   "remark": "",
                   "rows": "",
-                  "sql": "SELECT data_source AS NAME, VALUE,\n          CONCAT('À´Ô´£º ',data_source, '<p/>', '¸ĞÈ¾ÊıÁ¿£º',CAST(VALUE AS CHAR), ' ´Î') AS info, '¸ĞÈ¾' AS category\nFROM \n(\nSELECT CASE WHEN data_source = 'CM' THEN 'ÖØÇìÒÆ¶¯' \n\t         WHEN data_source = 'CU' THEN 'ÖØÇìÁªÍ¨'\n\t         WHEN data_source = 'CT' THEN 'ÖØÇìµçĞÅ'\n\t         WHEN data_source = 'CNCERT' THEN '¹ú¼ÒÖĞĞÄ' END AS data_source, SUM(num) AS VALUE\n\t          \nFROM mobinterana_i_controlevente\nWHERE event_time_day = %%Í¼±íA.NAME%%\nGROUP BY data_source\n) t",
+                  "sql": "SELECT data_source AS NAME, VALUE,\n          CONCAT('æ¥æºï¼š ',data_source, '<p/>', 'æ„ŸæŸ“æ•°é‡ï¼š',CAST(VALUE AS CHAR), ' æ¬¡') AS info, 'æ„ŸæŸ“' AS category\nFROM \n(\nSELECT CASE WHEN data_source = 'CM' THEN 'é‡åº†ç§»åŠ¨' \n\t         WHEN data_source = 'CU' THEN 'é‡åº†è”é€š'\n\t         WHEN data_source = 'CT' THEN 'é‡åº†ç”µä¿¡'\n\t         WHEN data_source = 'CNCERT' THEN 'å›½å®¶ä¸­å¿ƒ' END AS data_source, SUM(num) AS VALUE\n\t          \nFROM mobinterana_i_controlevente\nWHERE event_time_day = %%å›¾è¡¨A.NAME%%\nGROUP BY data_source\n) t",
                   "sqlType": "1",
                   "type": "1"
                 }
@@ -623,7 +623,7 @@
               }
             },
             "remark": "",
-            "titleName": " Êı¾İÀ´Ô´Õ¼±È",
+            "titleName": " æ•°æ®æ¥æºå æ¯”",
             "visible": "1",
             "zid": "zid-3d608040-9355e4e8-4b5ffdaf"
           },
@@ -633,13 +633,13 @@
             "childList": [],
             "childSize": null,
             "clsName": "",
-            "code": "±í¸ñAA",
+            "code": "è¡¨æ ¼AA",
             "content": {
-              "cascade": "Í¼±íA.NAME",
+              "cascade": "å›¾è¡¨A.NAME",
               "chartCategory": "",
               "chartType": "z_table_normal",
               "childType": "",
-              "code": "±í¸ñAA",
+              "code": "è¡¨æ ¼AA",
               "componentId": "de306897-3b65-43c7-a9dd-1fb9f54d6c4d",
               "content": "",
               "contentObj": null,
@@ -659,13 +659,13 @@
                   "page": "",
                   "paramStr": [
                     {
-                      "name": "Í¼±íA.NAME",
+                      "name": "å›¾è¡¨A.NAME",
                       "value": ""
                     }
                   ],
                   "params": [
                     {
-                      "name": "Í¼±íA.NAME",
+                      "name": "å›¾è¡¨A.NAME",
                       "value": ""
                     }
                   ],
@@ -673,7 +673,7 @@
                   "refreshType": "",
                   "remark": "",
                   "rows": "",
-                  "sql": "%%Í¼±íA.NAME%% ÓÃ»§¸ĞÈ¾¶ñÒâÊÂ¼şTOP100",
+                  "sql": "%%å›¾è¡¨A.NAME%% ç”¨æˆ·æ„ŸæŸ“æ¶æ„äº‹ä»¶TOP100",
                   "sqlType": "",
                   "type": "2"
                 },
@@ -690,13 +690,13 @@
                   "page": "",
                   "paramStr": [
                     {
-                      "name": "Í¼±íA.NAME",
+                      "name": "å›¾è¡¨A.NAME",
                       "value": ""
                     }
                   ],
                   "params": [
                     {
-                      "name": "Í¼±íA.NAME",
+                      "name": "å›¾è¡¨A.NAME",
                       "value": ""
                     }
                   ],
@@ -704,7 +704,7 @@
                   "refreshType": "0",
                   "remark": "",
                   "rows": "",
-                  "sql": "SELECT virus_name AS '¶ñÒâ³ÌĞò', \n\td_ip AS '¿ØÖÆIP',\n\ts_ip AS 'ÊÜ¿ØIP', \n\tphone AS 'ÊÖ»úºÅ' ,\n        count(1) AS '·¢Éú´ÎÊı', \n\tdate_format(MAX(last_time),'%H:%i:%s') AS '×î½üÒ»´Î·¢ÉúÊ±¼ä'\nFROM mobinterana_i_controlevente\nWHERE event_time_day = %%Í¼±íA.NAME%%\nGROUP BY virus_name, phone, d_ip, s_ip\norder by  ·¢Éú´ÎÊı desc\nlimit 100",
+                  "sql": "SELECT virus_name AS 'æ¶æ„ç¨‹åº', \n\td_ip AS 'æ§åˆ¶IP',\n\ts_ip AS 'å—æ§IP', \n\tphone AS 'æ‰‹æœºå·' ,\n        count(1) AS 'å‘ç”Ÿæ¬¡æ•°', \n\tdate_format(MAX(last_time),'%H:%i:%s') AS 'æœ€è¿‘ä¸€æ¬¡å‘ç”Ÿæ—¶é—´'\nFROM mobinterana_i_controlevente\nWHERE event_time_day = %%å›¾è¡¨A.NAME%%\nGROUP BY virus_name, phone, d_ip, s_ip\norder by  å‘ç”Ÿæ¬¡æ•° desc\nlimit 100",
                   "sqlType": "1",
                   "type": "1"
                 }
@@ -785,20 +785,20 @@
               }
             },
             "remark": "",
-            "titleName": " ÓÃ»§¸ĞÈ¾¶ñÒâÊÂ¼şTOP100",
+            "titleName": " ç”¨æˆ·æ„ŸæŸ“æ¶æ„äº‹ä»¶TOP100",
             "visible": "1",
             "zid": "zid-50432379-d149c6ab-06d09694"
           }
         ],
         "childSize": null,
         "clsName": "",
-        "code": "Í¼±íA",
+        "code": "å›¾è¡¨A",
         "content": {
           "cascade": "",
           "chartCategory": "z_chart",
           "chartType": "line",
           "childType": "cq3",
-          "code": "Í¼±íA",
+          "code": "å›¾è¡¨A",
           "componentId": "2724571b-0914-483a-ae63-1adcee295e2c",
           "content": "",
           "contentObj": null,
@@ -822,7 +822,7 @@
               "refreshType": "",
               "remark": "",
               "rows": "",
-              "sql": "½üÒ»ÔÂ¸ĞÈ¾¶ñÒâÊÂ¼şµÄÓÃ»§±ä»¯Ç÷ÊÆ",
+              "sql": "è¿‘ä¸€æœˆæ„ŸæŸ“æ¶æ„äº‹ä»¶çš„ç”¨æˆ·å˜åŒ–è¶‹åŠ¿",
               "sqlType": "",
               "type": "2"
             },
@@ -843,7 +843,7 @@
               "refreshType": "0",
               "remark": "",
               "rows": "",
-              "sql": "SELECT DATE_FORMAT(day_time,'%Y-%m-%d') AS NAME, \n       day_num AS VALUE, \n       CONCAT(DATE_FORMAT(day_time,'%Y-%m-%d'), '<p/>', '¸ĞÈ¾ÊıÁ¿£º',CAST(day_num AS CHAR), ' ´Î') AS info, '¸ĞÈ¾' AS category\nFROM mobinterana_i_controlevente_day_stat\nWHERE day_time>= ADDDATE(NOW(), INTERVAL -1 MONTH)",
+              "sql": "SELECT DATE_FORMAT(day_time,'%Y-%m-%d') AS NAME, \n       day_num AS VALUE, \n       CONCAT(DATE_FORMAT(day_time,'%Y-%m-%d'), '<p/>', 'æ„ŸæŸ“æ•°é‡ï¼š',CAST(day_num AS CHAR), ' æ¬¡') AS info, 'æ„ŸæŸ“' AS category\nFROM mobinterana_i_controlevente_day_stat\nWHERE day_time>= ADDDATE(NOW(), INTERVAL -1 MONTH)",
               "sqlType": "1",
               "type": "1"
             }
@@ -924,7 +924,7 @@
           }
         },
         "remark": "",
-        "titleName": "½üÒ»ÔÂ¸ĞÈ¾¶ñÒâÊÂ¼şµÄÓÃ»§±ä»¯Ç÷ÊÆ",
+        "titleName": "è¿‘ä¸€æœˆæ„ŸæŸ“æ¶æ„äº‹ä»¶çš„ç”¨æˆ·å˜åŒ–è¶‹åŠ¿",
         "visible": "1",
         "zid": "zid-3629a83a-0b743313-3be59e35"
       }

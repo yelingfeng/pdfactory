@@ -18,7 +18,8 @@
     "url": "https://github.com/yelingfeng/pdfactory/issues"
   },
   "homepage": "https://github.com/yelingfeng/pdfactory#readme",
-  "dependencies": {  
+  "dependencies": {
+    "echarts": "^2.2.8",
     "vue": "^1.0.24",
     "vuex": "^0.6.3"
   },

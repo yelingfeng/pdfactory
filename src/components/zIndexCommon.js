@@ -4,8 +4,7 @@
 import $ from "jquery"
 import _ from "lodash"
 
-
-const zIndexCommon = function (me){			
+const zIndexCommon = function (me){
 	var ALL= [],			// 缓存当前所有element的Z-index			
 		zIndexCache= {},	// 缓存ele和z-index
 		max = 500 , 		// 最大z-index量

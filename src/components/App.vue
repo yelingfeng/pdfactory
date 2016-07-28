@@ -1,69 +1,85 @@
 <template>
     <div class="zlayoutCenterView" :style="styleObj">
-        <!-- <p>
-            <button @click="showToaster('error')">error</button>
-            <button @click="showToaster('warning')">waring</button>
-            <button @click="showToaster('success')">success</button>
-            <button @click="showToaster('info')">info</button>
-        </p>
-        -->
-        <box v-for="comp in gData.components" :options="comp" ></box>
+        <box v-for="comp in gData.components" :options="comp"  ></box>
     </div>
-    <Toaster></Toaster>
-
+    <!--<Toaster></Toaster>-->
 </template>
 
 <script>
-    import $ from "jquery"
-    import Toaster from "./Toaster"
-    import {TestAction,loadModules} from "./../vuex/actions"
-    import Utils  from "./../util/zUtil"
-    import Right from './Right'
-    import box from "./BaseComponent"
-    export default {
-         data(){
-             return {
-                 msg : "产品工场",
-                 styleObj : {
-                     width : 0,
-                     height : 0
-                 }
+import $ from "jquery"
+import Toaster from "./Toaster"
+import {TestAction,loadModules} from "./../vuex/actions"
+import Utils  from "util/zUtil"
+import Right from './Right'
+import zParameter from "./zParameter"
+import box from "./BaseComponent"
+import Zlay from "core/Zlay"
+import {isLoadSuccess} from "./../vuex/getters"
+import RC from "util/ResourcesConfig"
+export default {
+     data(){
+         return {
+             styleObj : {
+                 width : 0,
+                 height : 0
              }
-         },
-         vuex:{
-            getters : {
-                gData : ({app})=> app.globalData
-            },
-            actions : {
-                TestAction, loadModules
+         }
+     },
+     vuex:{
+        getters : {
+            gData : ({app})=> app.globalData,
+            isLoadSuccess
+        },
+        actions : {
+            TestAction, loadModules
+        }
+    },
+
+    ready(){
+        this._init();
+
+    },
+    watch:{
+        isLoadSuccess:function(){
+            Zlay.common.loadTreeComponents(this.gData.pid2TreeComponents);
+            Zlay.renderInit();
+            this.bindResize();
+        }
+    },
+    methods:{
+
+        _init(){
+            var me = this;
+            this.styleObj.width = $(window).width() + "px";
+            this.styleObj.height = $(window).height() + "px";
+            $("body").addClass("bg-body")
+
+            this.loadModules();
+        },
+
+        showToaster(type){
+          this.TestAction("测试0001", type)
+        },
+
+
+        bindResize(){
+            var layoutWin = () =>{
+                var	ww = $(window).width(),
+                    wh = $(window).height();
+                $("#"+RC.VIEW_CENTER_ID).width(ww).height(wh);
+                Zlay.resize();
             }
-        },
-        ready(){
-            this._init();
-        },
-        methods:{
-            _init(){
-              this.loadModules();
-              this.styleObj.width = $(window).width() + "px";
-              this.styleObj.height = $(window).height() + "px";
-            //                var isOpacity = Utils.getUrlString("isOpacity");
-            //                if(isOpacity && isOpacity == "1"){
-            //                    $("body").css({
-            //                        "background":"#072E67 url(image/zld-bg.jpg) no-repeat center 0",
-            //                        "background-size":"cover"
-            //                    })
-            //                }
-              $("body").addClass("bg-body")
-          },
-          showToaster(type){
-                this.TestAction("测试0001", type)
-          }
-      },
-      components:{
-            box,Toaster
-      }
-      
-    }
+            $(window).resize(function(){
+                layoutWin();
+            });
+            layoutWin();
+        }
+    },
+  components:{
+        box,Toaster
+  }
+
+}
 </script>
 
 <style >

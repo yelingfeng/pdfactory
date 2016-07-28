@@ -10,8 +10,10 @@ Vue.use(VueResource);
 Vue.http.options.crossOrigin = true;
 //Vue.http.options.xhr = {withCredentials: true}
 
+
 //API_ROOT + 'module/selectModule'
 const url = "http://localhost:5100/src/api/data.json";
+const viewURL = API_ROOT +"db/previewChart";
 
 
 
@@ -21,7 +23,7 @@ Vue.http.interceptors.push({
   },
   response (response) {
     if(response.status === 500){
-    	alert("服务器加载失败")
+    	console.log("服务器加载失败")
     }
     return response
   }
@@ -31,3 +33,6 @@ Vue.http.interceptors.push({
 // 加载所有模块 初始化方法
 //export const  initSelectModules = (options) => Vue.http.get(API_ROOT + 'module/selectModule',options)
 export const  initSelectModules = (options) => Vue.http.get(url,options);
+
+// 加载图表数据
+export const getChartView = (options) => Vue.http.post(viewURL,options);

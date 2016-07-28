@@ -4,7 +4,8 @@ import {
 } from "../mutation-types"
 
 const state  = {
-	globalData : {}
+	globalData : {},
+	loadedCompNum :0,
 };
 
 
@@ -15,10 +16,10 @@ const mutations = {
 	},
 
 	[SYNC_COMP_OPTION](state,option){
-		console.log(option);
 		state.globalData.components.forEach((it) => {
 			if(option.id === it.id){
 				it = option
+				state.loadedCompNum++
 			}
 		})
 	}

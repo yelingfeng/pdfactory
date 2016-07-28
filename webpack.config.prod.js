@@ -50,7 +50,8 @@ module.exports = {
     loaders: [
     {
       test: /\.vue$/,  loader: 'vue',include: path.join(__dirname,'src')
-    }, 
+    },
+      {  test: /\.json$/,   loader: 'json'},
     {
       test: /\.js$/,  loader: 'babel', exclude: /node_modules|vue\/dist|vue-hot-reload-api|vue-router\/|vue-loader/
     },

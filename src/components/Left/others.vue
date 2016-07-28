@@ -1,7 +1,7 @@
 <template>
    <strong class="nav_c_title">其他</strong>
    <div class="toolbar_text">
-       <span v-for="value in otherFreg" href="javascript:;"  data-type="{{value.type}}" data-component="' + RC.ZCOMP_TYPE.OTHER + '" class="{{value.class}}" >{{value.name}}</span>
+       <span v-for="value in otherFreg" href="javascript:;"  data-type="{{value.type}}" data-component="{{a}}" class="{{value.class}}" >{{value.name}}</span>
    </div>
 </template>
 <style>
@@ -12,7 +12,7 @@
     export default{
         data(){
             return{
-                RC,
+                a: RC.A,
                 otherFreg: [
  //                     	   {"name":"时间格式",type:"1", "class":"otherFreg_timeStl"},
                                {"name": "帮助", type: "2", "class": "otherFreg_helper"},
