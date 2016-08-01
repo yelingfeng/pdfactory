@@ -12,9 +12,7 @@ Vue.http.options.crossOrigin = true;
 
 
 //API_ROOT + 'module/selectModule'
-const url = "http://localhost:5100/src/api/data.json";
-const viewURL = API_ROOT +"db/previewChart";
-
+const viewURL = API_ROOT +"/db/previewChart";
 
 
 Vue.http.interceptors.push({
@@ -31,8 +29,7 @@ Vue.http.interceptors.push({
 
 
 // 加载所有模块 初始化方法
-//export const  initSelectModules = (options) => Vue.http.get(API_ROOT + 'module/selectModule',options)
-export const  initSelectModules = (options) => Vue.http.get(url,options);
+export const  initSelectModules = (options) => Vue.http.get(API_ROOT + "/selectModule",options);
 
 // 加载图表数据
 export const getChartView = (options) => Vue.http.post(viewURL,options);

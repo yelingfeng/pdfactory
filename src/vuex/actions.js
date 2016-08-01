@@ -22,7 +22,7 @@ export const loadModules = ({dispatch}) => {
 	api.initSelectModules({
 		moduleId:'2b1fa1a4-11b2-4169-ab37-e0408f8f655a'
 	}).then(rep => {
-		 let gdata = rep.data.result;
+		 let gdata = rep.data;
 		 dispatch(types.INIT_GLOBAL_DATA,gdata)
 	});
 };

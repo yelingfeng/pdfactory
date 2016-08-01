@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "gulp serve",
     "build": "gulp build",
-    "server": "node server.js"
+    "server": "node server.js",
+    "jsonserver": "json-server ./json/db.json -p 3030"
   },
   "repository": {
     "type": "git",
@@ -52,6 +53,7 @@
     "jquery": "^2.2.2",
     "json-loader": "^0.5.4",
     "lodash": "^4.6.1",
+    "mockjs": "^1.0.1-beta2",
     "moment": "^2.13.0",
     "open": "0.0.5",
     "style-loader": "^0.13.1",
